@@ -18,7 +18,7 @@
 #include <ctime>
 #include <tuple>
 
-#include "support/FpsCounter.h"
+// #include "support/FpsCounter.h"
 #include "GlobeViewer.h"
 
 std::unique_ptr<gv::GlobeViewer> globeViewer;
