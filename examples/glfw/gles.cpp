@@ -100,7 +100,6 @@ EM_ASM({console.log("cMouseX = "+$0);},cMouseX);
 }
 
 void strt(){
-auto window = std::get<0>( tup );
 S=EM_ASM_INT({return parseInt(document.getElementById('pmhig').innerHTML,10);});
 eglBindAPI(EGL_OPENGL_ES_API);
 const EGLint attribut_list[]={ 
