@@ -20,8 +20,9 @@
 
 // #include "support/FpsCounter.h"
 #include "GlobeViewer.h"
-
+extern "C"{
 std::unique_ptr<gv::GlobeViewer> globeViewer;
+}
 bool drag = false;
 bool shift = false;
 bool fullscreen = false;
