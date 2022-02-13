@@ -20,7 +20,6 @@
 
 #include "GlobeViewer.h"
 
-std::tuple<EGLSurface*, int, int> setupWindow( const std::string& title );
 
 std::unique_ptr<gv::GlobeViewer> globeViewer;
 bool drag = false;
@@ -101,7 +100,6 @@ EM_ASM({console.log("cMouseX = "+$0);},cMouseX);
 }
 
 void strt(){
-std::tuple<EGLSurface*, int, int> tup = setupWindow( "GlobeViewer" );
 auto window = std::get<0>( tup );
 S=EM_ASM_INT({return parseInt(document.getElementById('pmhig').innerHTML,10);});
 eglBindAPI(EGL_OPENGL_ES_API);
