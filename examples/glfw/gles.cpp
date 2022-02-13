@@ -18,8 +18,8 @@
 #include <ctime>
 #include <tuple>
 
+#include "support/FpsCounter.h"
 #include "GlobeViewer.h"
-
 
 std::unique_ptr<gv::GlobeViewer> globeViewer;
 bool drag = false;
