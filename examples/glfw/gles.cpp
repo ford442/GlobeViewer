@@ -97,10 +97,12 @@ const float cMouseX=mouseX;
 const float cMouseY=mouseY;
 EM_ASM({console.log("cMouseX = "+$0);},cMouseX);
 }
-
+        globeViewer->render();
 }
 
 void strt(){
+std::tuple<EGLSurface*, int, int> tup = setupWindow( "GlobeViewer" );
+auto window = std::get<0>( tup );
 S=EM_ASM_INT({return parseInt(document.getElementById('pmhig').innerHTML,10);});
 eglBindAPI(EGL_OPENGL_ES_API);
 const EGLint attribut_list[]={ 
@@ -152,7 +154,6 @@ contextegl=eglCreateContext(display,eglconfig,EGL_NO_CONTEXT,anEglCtxAttribs2);
 surface=eglCreateWindowSurface(display,eglconfig,0,attribut_list);
 eglMakeCurrent(display,surface,surface,contextegl);
 emscripten_webgl_make_context_current(ctx);
-
 glEnable(GL_CULL_FACE);
 glCullFace(GL_FRONT);
 glEnable(GL_DITHER);
@@ -164,11 +165,8 @@ glViewport(0,0,S,S);
 glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
 emscripten_set_main_loop((void(*)())renderFrame,0,0);
 }
-extern "C" {
-void str(){
-strt();
-}}
-int main(){
 
+int main(){
+strt();
 return 1;
 }
