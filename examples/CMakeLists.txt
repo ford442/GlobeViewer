@@ -1,5 +1,5 @@
 if ( BUILD_EXAMPLES )
-    option( BUILD_EXAMPLE_GLFW OFF )
+    option( BUILD_EXAMPLE_GLFW ON )
 endif()
 
 if ( BUILD_EXAMPLE_GLFW )
